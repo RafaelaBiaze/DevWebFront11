@@ -1,0 +1,30 @@
+<% layout('./layouts/main') -%>
+
+<main class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h1 class="h3 mb-1">Gerenciamento de Usuários (React)</h1>
+          <p class="text-muted mb-0">Versão com Provider e Context API</p>
+        </div>
+        <div>
+          <span class="badge bg-success">Usuário: <%= user.name %></span>
+          <button class="btn btn-outline-danger btn-sm ms-2" id="btn-sair">Sair</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container para o React App -->
+  <div id="app" data-component="UsersWithContext"></div>
+</main>
+
+<script>
+document.getElementById('btn-sair').addEventListener('click', function() {
+  // Limpar cookies/localStorage se necessário
+  document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  // Redirecionar para login
+  window.location.href = '/';
+});
+</script>
